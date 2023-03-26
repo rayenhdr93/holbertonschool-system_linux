@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 
 	if (argc < 2)
 		argv[1] = "./";
-	for (i = argc - 1; i > 0; i--)
+	for (i = 1; i < argc; i++)
 	{
 		if (argc > 2)
 			printf("%s:\n", argv[i]);
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 			fprintf(stderr, "%s: cannot access %s: ", argv[0], argv[i]);
 			perror("");
 		}
-		if (i > 1)
+		if (i < 2)
 			printf("\n");
 	}
 	return (0);
