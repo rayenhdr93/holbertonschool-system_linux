@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 			printf("\n");
 			closedir(dir);
 		} 
-		else (ENOENT == errno)
+		else
 		{
 			fprintf(stderr, "./hls: cannot access %s: ", argv[i]);
 			perror("");
