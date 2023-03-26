@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 			printf("\n");
 			closedir(dir);
 		}
-		else if (stat(argv[i],&buffer) == 0)
+		else if (lstat(argv[i],&buffer) == 0)
 		{
 			printf("%s\n", argv[i]);
 		}
