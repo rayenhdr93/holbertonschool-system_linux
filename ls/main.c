@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 {
 	DIR *dir;
 	struct dirent *read;
+	struct stat buffer;
 	int i = 0;
 
 	if (argc < 2)
@@ -29,8 +30,12 @@ int main(int argc, char *argv[])
 				printf("%s  ", read->d_name);
 			printf("\n");
 			closedir(dir);
-		} 
-		else
+		}
+		else if (stat(argv[i],&buffer) == 0)
+		{
+			printf("%s\n", argv[i]);
+		}
+		else 
 		{
 			fprintf(stderr, "%s: cannot access %s: ", argv[0], argv[i]);
 			perror("");
