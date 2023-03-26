@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 			while ((read = readdir(dir)) != NULL)
 			{
 				if (read->d_name[0] != '.' && x == 1)
-					printf("%s  \n", read->d_name);
+					printf("%s\n", read->d_name);
 				else if (read->d_name[0] != '.' )
 					printf("%s  ", read->d_name);
 			}
