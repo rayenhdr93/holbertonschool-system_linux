@@ -57,9 +57,9 @@ int main(int argc, char *argv[])
 					printf("%s\n", read->d_name);
 				else if (y == 1 && x == 0)
 					printf("%s  ", read->d_name);
-				else if (z == 1 && x == 1 && read->d_name[1] > 64)
+				else if (z == 1 && x == 1 && read->d_name[-1] > 64)
 					printf("%s\n", read->d_name);
-				else if (z == 1 && x == 0 && read->d_name[1] > 64)
+				else if (z == 1 && x == 0 && read->d_name[-1] > 64)
 					printf("%s  ", read->d_name);
 			}
 			if (x == 0)
