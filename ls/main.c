@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	DIR *dir;
 	struct dirent *read;
 	struct stat buffer;
-	int i = 0, x = 0, y=0,nb = argc;
+	int i = 0, x = 0, y = 0, z = 0, nb = argc;
 
 	if (argc < 2)
 		argv[1] = "./";
@@ -31,6 +31,12 @@ int main(int argc, char *argv[])
 			y = 1;
 			nb -= 1;
 		}
+		else if (argv[i][0] == '-' && argv[i][1] == 'A')
+		{
+			z = 1;
+			nb -= 1;
+		}
+
 	}
 	for (i = 1; i < argc; i++)
 	{
@@ -49,7 +55,11 @@ int main(int argc, char *argv[])
 					printf("%s  ", read->d_name);
 				else if (y == 1 && x == 1)
 					printf("%s\n", read->d_name);
-				else
+				else if (y == 1 && x == 0)
+					printf("%s  ", read->d_name);
+				else if (z == 1 && x == 1 && read->d_name[1] > 64)
+					printf("%s\n", read->d_name);
+				else if (z == 1 && x == 0 && read->d_name[1] > 64)
 					printf("%s  ", read->d_name);
 			}
 			if (x == 0)
