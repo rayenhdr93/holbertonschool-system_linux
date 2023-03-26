@@ -32,11 +32,11 @@ int main(int argc, char *argv[])
 			printf("\n");
 			closedir(dir);
 		}
-		else if (lstat(argv[i],&buffer) == 0)
+		else if (lstat(argv[i], &buffer) == 0)
 		{
-			if (errno != 20)
+			if (errno == 13)
 			{
-				fprintf(stderr, "%s: cannot access %s: ", argv[0], argv[i]);
+				fprintf(stderr, "%s: cannot open directory %s: ", argv[0], argv[i]);
 				perror("");
 				if (i < argc - 1)
 					printf("\n");
