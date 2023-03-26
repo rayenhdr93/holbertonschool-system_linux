@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 			fprintf(stderr, "%s: cannot access %s: ", argv[0], argv[i]);
 			perror("");
 		}
-		if (i < 2)
+		if (i < argc - 1)
 			printf("\n");
 	}
 	return (0);
