@@ -23,6 +23,12 @@ int main(int argc, char *argv[])
 		dir = opendir(argv[i]);
 		if (dir) 
 		{
+			if ((read = readdir(dir)) == NULL)
+			{
+				fprintf(stderr, "%s: cannot access %s: ", argv[0], argv[i]);
+				perror("");
+				break;
+			}
 			if (argc > 2)
 				printf("%s:\n", argv[i]);
 			while ((read = readdir(dir)) != NULL)
