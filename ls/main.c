@@ -20,11 +20,11 @@ int main(int argc, char *argv[])
 		argv[1] = "./";
 	for (i = 1; i < argc; i++)
 	{
-		if (argc > 2)
-			printf("%s:\n", argv[i]);
 		dir = opendir(argv[i]);
 		if (dir) 
 		{
+			if (argc > 2)
+				printf("%s:\n", argv[i]);
 			while ((read = readdir(dir)) != NULL)
 			if (read->d_name[0] != '.')
 				printf("%s  ", read->d_name);
