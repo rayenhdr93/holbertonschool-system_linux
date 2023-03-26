@@ -3,6 +3,7 @@
 #include <sys/stat.h>
 #include <errno.h>
 #include <stdlib.h>
+#include <string.h>
 /**
 * main - main func
 * @argc: num of argum
@@ -21,14 +22,8 @@ int main(int argc, char *argv[])
 	for (i = 1; i < argc; i++)
 	{
 		dir = opendir(argv[i]);
-		if (dir) 
+		if (dir)
 		{
-			if ((read = readdir(dir)) == NULL)
-			{
-				fprintf(stderr, "%s: cannot access %s: ", argv[0], argv[i]);
-				perror("");
-				break;
-			}
 			if (argc > 2)
 				printf("%s:\n", argv[i]);
 			while ((read = readdir(dir)) != NULL)
@@ -39,6 +34,14 @@ int main(int argc, char *argv[])
 		}
 		else if (lstat(argv[i],&buffer) == 0)
 		{
+			if (errno != 20)
+			{
+				fprintf(stderr, "%s: cannot access %s: ", argv[0], argv[i]);
+				perror("");
+				if (i < argc - 1)
+					printf("\n");
+				continue;
+			}
 			printf("%s\n", argv[i]);
 		}
 		else 
