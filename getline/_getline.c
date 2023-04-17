@@ -26,9 +26,8 @@ char *_getline(const int fd)
 				return(NULL);
 			}
 		}
+		
 	}
-	if (n == 0)
-		exit(0);
 	if (n < 0)
 	{
 		return(NULL);
@@ -43,6 +42,9 @@ char *_getline(const int fd)
 		strncpy(line, buffer, i);
 		line[i] = '\0';
 	}
-
+	if ((n == 0) && (i == 0))
+	{
+		exit(0);
+	}
 	return (line);
 }
