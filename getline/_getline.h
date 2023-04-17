@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 
-#define BUFFER_SIZE 1024
+#define READ_SIZE 1024
 
 char *_getline(const int fd);
 
