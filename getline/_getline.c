@@ -44,7 +44,7 @@ char *_getline(const int fd)
 	}
 	if ((n == 0) && (i == 0))
 	{
-		exit(0);
+		return(NULL);
 	}
 	return (line);
 }
