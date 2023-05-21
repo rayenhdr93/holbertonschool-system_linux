@@ -8,7 +8,7 @@ if __name__ == '__main__':
         print('Usage: read_write_heap.py pid search_string replace_string')
         exit(1)
     pid = sys.argv[1]
-    str = sys.argv[2]
+    s = sys.argv[2]
     rep = sys.argv[3]
 
     try:
@@ -32,7 +32,7 @@ if __name__ == '__main__':
             b = int(mem[1], 16)
             me.seek(a)
             x = me.read(b - a)
-            pos = x.find(str.encode(str))
+            pos = x.find(str.encode(s))
 
             if pos == -1:
                 break
