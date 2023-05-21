@@ -18,7 +18,7 @@ if __name__ == '__main__':
         exit(1)
 
     try:
-        mem = open('/proc/{}/mem'.format(pid), 'r+b', 0)
+        me = open('/proc/{}/mem'.format(pid), 'r+b', 0)
     except Exception as error:
         maps.close()
         print(error)
@@ -30,16 +30,16 @@ if __name__ == '__main__':
             mem = line_split[0].split('-')
             a = int(mem[0], 16)
             b = int(mem[1], 16)
-            mem.seek(a)
-            x = mem.read(b - a)
+            me.seek(a)
+            x = me.read(b - a)
             pos = x.find(str.encode(str))
 
             if pos == -1:
                 break
 
-            mem.seek(a + pos)
-            mem.write(str.encode(rep) + b'\x00')
+            me.seek(a + pos)
+            me.write(str.encode(rep) + b'\x00')
             break
 
-    mem.close()
+    me.close()
     maps.close()
