@@ -1,7 +1,9 @@
 #include "signals.h"
 /**
  * handle - handle
- * @signal: signal
+ * @numsig: numsig
+ * @info: info
+ * @pointer: pointer
  */
 void handle(int numsig, siginfo_t *info, void *pointer)
 {
@@ -14,7 +16,7 @@ void handle(int numsig, siginfo_t *info, void *pointer)
 	}
 }
 /**
- * trace_signal_sender - function that defines a handler for 
+ * trace_signal_sender - function that defines a handler for
  * the signal SIGQUIT (Control-\ in a shell)
  * Return: return 0 on success, or -1 on error
  */
