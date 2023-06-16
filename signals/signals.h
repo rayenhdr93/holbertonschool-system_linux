@@ -2,6 +2,9 @@
 #define SIGNALS_H
 #include <stdio.h>
 #include "signal.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 int handle_signal(void);
 void (*current_handler_signal(void))(int);
 int handle_sigaction(void);
