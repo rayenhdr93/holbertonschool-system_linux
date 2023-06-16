@@ -15,10 +15,10 @@ void handle(int signal)
  */
 int trace_signal_sender(void)
 {
-	struct sigaction sig;
+	struct sigaction sa;
 
-	sig.sa_sigaction = handle;
-	sig.sa_flags = SA_SIGINFO;
+	sa.sa_sigaction = handle;
+	sa.sa_flags = SA_SIGINFO;
 
-	return (sigaction(SIGQUIT, &sig, NULL));
+	return (sigaction(SIGQUIT, &sa, NULL));
 }
