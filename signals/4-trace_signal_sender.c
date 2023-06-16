@@ -3,10 +3,15 @@
  * handle - handle
  * @signal: signal
  */
-void handle(int signal)
+void handle(int numsig, siginfo_t *info, void *pointer)
 {
-	printf("Gotcha! [%d]\n", signal);
-	fflush(stdout);
+	(void) numsig;
+	(void) pointer;
+	if (info)
+	{
+		printf("SIGQUIT send bu %i\n", info->si_pid);
+		fflush(stdout);
+	}
 }
 /**
  * trace_signal_sender - function that defines a handler for 
