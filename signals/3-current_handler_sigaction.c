@@ -10,5 +10,5 @@ void (*current_handler_sigaction(void))(int){
 
 	if (sigaction(SIGINT, NULL, &sig) == -1)
 		return (NULL);
-	return (sig.sig_handler);
+	return (sig.sa_handler);
 }
