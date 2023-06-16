@@ -16,7 +16,7 @@ int main(void)
 {
 	struct sigaction sa;
 
-	sa.sa_handler = &handler_sig;
+	sa.sa_handler = &handle_sig;
 	sigaction(SIGINT, &sa, NULL);
 	pause();
 	printf("Signal received\n");
