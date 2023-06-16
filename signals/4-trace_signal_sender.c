@@ -17,7 +17,7 @@ int trace_signal_sender(void)
 {
 	struct sigaction sig;
 
-	sig.sa_sigaction = handler;
+	sig.sa_sigaction = handle;
 	sig.sa_flags = SA_SIGINFO;
 
 	return (sigaction(SIGQUIT, &sig, NULL));
